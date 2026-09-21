@@ -1,0 +1,17 @@
+{
+  "name": "claude-process",
+  "owner": {
+    "name": "RadicalZephyr",
+    "url": "https://github.com/RadicalZephyr"
+  },
+  "description": "The process behind Zef's Claude instructions, installable as a plugin.",
+  "plugins": [
+    {
+      "name": "zef",
+      "source": "./",
+      "description": "Zef's skills: the working process behind her Claude instructions.",
+      "category": "productivity",
+      "keywords": ["process", "skills", "park", "decisions"]
+    }
+  ]
+}

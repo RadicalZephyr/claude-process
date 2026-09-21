@@ -1,0 +1,13 @@
+{
+  "name": "zef",
+  "version": "0.1.0",
+  "description": "Zef's skills: the working process behind her Claude instructions.",
+  "author": {
+    "name": "RadicalZephyr",
+    "url": "https://github.com/RadicalZephyr"
+  },
+  "repository": "https://github.com/RadicalZephyr/claude-process",
+  "skills": [
+    "./skills/park"
+  ]
+}
