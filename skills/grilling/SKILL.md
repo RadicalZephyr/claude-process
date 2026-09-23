@@ -16,7 +16,15 @@ For each question, first print its context, every answer you're offering, and yo
 recommendation as text:
 
 ```
-❓ **<question title>**: <standalone context, then the question body, might be multiple paragraphs>
+#### Context
+
+<standalone context>
+
+### ❓ **<question title>**:
+
+<the question body, might be multiple paragraphs>
+
+<restate question title>:
 
 - **(a)** <answer, and what choosing it commits the user to>
 - **(b)** <answer, and what choosing it commits the user to>
@@ -45,8 +53,8 @@ the user selects it, immediately stop asking questions and prompt the user to el
 The user answers each question on its own, so the burden of context is on the asking
 side, never the answering side:
 
-- Open each question with a sentence or two of context that stand on their own, so it can
-  be answered without scrolling back to the question it depends on.
+- Precede each question with a sentence or two of context that stand on their own, so it
+  can be answered without scrolling back to the question it depends on.
 - When a question builds on an earlier answer, restate that answer in words: "the
   two-tier engine you chose, alloc core plus a std feature", not "option a".
 - When a question uses an option label defined elsewhere, including one from a
@@ -64,7 +72,7 @@ pushes anything printed above it off screen, and the user objects by dismissing 
 prompt, so the block has to sit directly above it:
 
 ```
-⚠️ **Consequences**
+# ⚠️ **Consequences**
 
 - <forced conclusion>, because <the answers that force it, in words>
 ```
