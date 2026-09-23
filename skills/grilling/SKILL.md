@@ -49,8 +49,14 @@ A question read in isolation names every earlier decision it depends on in words
 After every answer, recompute the frontier before asking again. Settled decisions push it
 outward and unblock the questions that depended on them. When earlier answers force a
 later decision, don't ask it: state the forced conclusion and the answers that force it,
-in words, so the user can object. Nothing is silently assumed, but nothing forced is put
-to the user as though it were open.
+in words, so the user can object. When one answer forces several decisions, list them all
+together in the text before the next question. Nothing is silently assumed, but nothing
+forced is put to the user as though it were open.
+
+The user objects to a forced conclusion by dismissing the next question. When a question
+comes back dismissed, stop asking and wait for the user's reply. Treat it as an objection
+to the conclusions you stated just before that question unless they say otherwise, and
+repair the tree before asking again.
 
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from
 the environment (filesystem, tools, etc.), dispatch a sub-agent in the background to find
