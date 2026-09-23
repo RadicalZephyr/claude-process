@@ -49,9 +49,17 @@ A question read in isolation names every earlier decision it depends on in words
 After every answer, recompute the frontier before asking again. Settled decisions push it
 outward and unblock the questions that depended on them. When earlier answers force a
 later decision, don't ask it: state the forced conclusion and the answers that force it,
-in words, so the user can object. When one answer forces several decisions, list them all
-together in the text before the next question. Nothing is silently assumed, but nothing
-forced is put to the user as though it were open.
+in words, so the user can object. Put every forced conclusion in one block, printed right
+before the next question's text, so they can't get lost in it:
+
+```
+⚠️ **Consequences**
+
+- <forced conclusion>, because <the answers that force it, in words>
+```
+
+Nothing is silently assumed, but nothing forced is put to the user as though it were
+open.
 
 The user objects to a forced conclusion by dismissing the next question. When a question
 comes back dismissed, stop asking and wait for the user's reply. Treat it as an objection
@@ -65,6 +73,11 @@ until the user answers, so launch the sub-agent _before_ you start asking. A run
 exploration is an unsettled prerequisite: only the questions downstream of it wait for
 the sub-agent to report, so ask the rest of the frontier meanwhile. The _decisions_ are
 the user's: put each to them and wait.
+
+When an answer rests on a fact that's wrong, don't quietly correct it and carry on. Say
+what the fact actually is and how it undercuts the answer, then end your turn without
+asking the next question. The user has to confront the assumption and justify their
+answer, or change it, before the tree moves on.
 
 The session is done when the frontier is empty: every branch of the design tree visited,
 nothing left silently assumed. Do not act on it until the user confirms you have reached a
