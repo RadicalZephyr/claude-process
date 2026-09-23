@@ -6,7 +6,8 @@ disable-model-invocation: true
 ---
 
 Write a handoff document summarising the current conversation so a fresh agent can
-continue the work.
+continue the work. The document should be named according to this template:
+`handoff-<user locale ISO 8601 date>-<description summary slug>.md`
 
 Include a "suggested skills" section in the document, naming which skills the next agent
 should call the Skill tool for.
@@ -18,4 +19,4 @@ Redact any sensitive information, such as API keys, passwords, or personally ide
 information.
 
 If the user passed arguments, treat them as a description of what the next session will
-focus on and tailor the doc accordingly.
+focus on and tailor the document accordingly.
