@@ -14,16 +14,31 @@ recommended answer. Then wait for the user's answers before the next round.
 Format a round like so:
 
 ```
-❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+❓ **Q1** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
 
 ➡️ <your recommended answer>
 
 ---
 
-❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
+❓ **Q2** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
 
 ➡️ <your recommended answer>
 ```
+
+The user answers a round tersely, `Q1: a, Q2: agree`, and that only works because the
+question carries the context. So the burden of context is on the asking side, never the
+answering side:
+
+- Open each question with a sentence or two of context that stand on their own, so it can
+  be answered without scrolling back to the round it depends on.
+- When a question builds on an earlier answer, restate that answer in words, never by
+  letter alone: "the two-tier engine you chose in Q1, alloc core plus a std feature", not
+  "Q1 (a)".
+- When a question uses an option label defined outside this round, including one from a
+  sub-agent's report or another document, define it inline the first time it appears.
+
+A question from a later round, read in isolation, names every earlier decision it depends
+on in words. Asking "wait, what?" of it would turn up nothing new.
 
 Each round the user answers reshapes the tree: settled decisions push the frontier outward
 and unblock questions that depended on them. Recompute the frontier and ask the next
