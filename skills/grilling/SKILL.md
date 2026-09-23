@@ -16,13 +16,13 @@ wait for the user's answers before the next round.
 Format a round like so:
 
 ```
-❓ **Q1** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
+❓ **Q<n>** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
 
 ➡️ <your recommended answer>
 
 ---
 
-❓ **Q2** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
+❓ **Q<n+1>** - **<question title>**: <standalone context, then the question body, might be multiple paragraphs, including multiple choices>
 
 ➡️ <your recommended answer>
 ```
