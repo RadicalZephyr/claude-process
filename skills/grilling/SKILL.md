@@ -12,26 +12,35 @@ question at a time, and ask first the question whose answer settles or constrain
 most others. Early choices cascade: once they're made, many later questions stop being
 questions.
 
-For each question, first print its context and your recommendation as text:
+For each question, first print its context, every answer you're offering, and your
+recommendation as text:
 
 ```
 ❓ **<question title>**: <standalone context, then the question body, might be multiple paragraphs>
 
-➡️ <your recommended answer, and why>
+- **(a)** <answer, and what choosing it commits the user to>
+- **(b)** <answer, and what choosing it commits the user to>
+
+➡️ **(<letter>)** <your recommended answer, and why>
 ```
 
+The answers must be in the text, because `AskUserQuestion` leaves nothing in the
+transcript but the one the user picked. The user will scroll back to an answer they
+passed over, so every answer they were offered has to still be there. List your
+recommended answer first, as (a).
+
 Then call `AskUserQuestion` with just that one question. Its `question` is a one-line
-restatement, `header` a short topic label, and your recommended answer the first option
-with "(Recommended)" at the end of its label. Each option's `description` says what
-choosing it commits the user to. The text carries the explanation, so keep the tool call
-brief.
+restatement and `header` a short topic label. Each option's `label` is the answer's
+letter, "(a)", with "(Recommended)" after the recommended one, and its `description` is
+an extremely brief summary of that answer. The text carries the explanation, so keep the
+tool call brief.
 
 Some questions don't have a handful of honest answers: "what failure worries you most?"
-Don't invent options to squeeze these into the tool, that narrows the user's thinking
-before they've done it. Offer exactly two options, your recommended answer and "Let's talk
-it through", and let the user answer in their own words through Other. If the user selects
-"Let's talk it through" immediately stop asking questions and prompt the user to
-elaborate.
+Don't invent answers to squeeze these into the tool, that narrows the user's thinking
+before they've done it. Offer your recommended answer as the only lettered answer and let
+the user answer in their own words through Other. `AskUserQuestion` needs at least two
+options, so add "Let's talk it through" as the second; offer it on no other question. If
+the user selects it, immediately stop asking questions and prompt the user to elaborate.
 
 The user answers each question on its own, so the burden of context is on the asking
 side, never the answering side:
