@@ -58,8 +58,10 @@ A question read in isolation names every earlier decision it depends on in words
 After every answer, recompute the frontier before asking again. Settled decisions push it
 outward and unblock the questions that depended on them. When earlier answers force a
 later decision, don't ask it: state the forced conclusion and the answers that force it,
-in words, so the user can object. Put every forced conclusion in one block, printed right
-before the next question's text, so they can't get lost in it:
+in words, so the user can object. Put every forced conclusion in one block, printed after
+the next question's text and right before its `AskUserQuestion` call. Long question text
+pushes anything printed above it off screen, and the user objects by dismissing that
+prompt, so the block has to sit directly above it:
 
 ```
 ⚠️ **Consequences**
