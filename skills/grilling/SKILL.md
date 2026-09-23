@@ -28,8 +28,10 @@ brief.
 
 Some questions don't have a handful of honest answers: "what failure worries you most?"
 Don't invent options to squeeze these into the tool, that narrows the user's thinking
-before they've done it. Offer exactly two options, your recommended answer and "Let's
-talk it through", and let the user answer in their own words through Other.
+before they've done it. Offer exactly two options, your recommended answer and "Let's talk
+it through", and let the user answer in their own words through Other. If the user selects
+"Let's talk it through" immediately stop asking questions and prompt the user to
+elaborate.
 
 The user answers each question on its own, so the burden of context is on the asking
 side, never the answering side:
